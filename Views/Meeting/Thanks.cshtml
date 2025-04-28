@@ -1,0 +1,45 @@
+﻿@model UserInfo
+@{
+    ViewBag.Title = "Başvuru Durumu";
+}
+<main class="container my-5 d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+
+    <div class="card shadow-lg rounded-5 p-4" style="max-width: 500px; width: 100%;">
+
+        <h1 class="h3 text-center mb-4">Başvuru Durumu</h1>
+
+        @if (Model.WillAttend == true)
+        {
+            <div class="text-center mb-4">
+                <i class="bi bi-emoji-smile text-success" style="font-size: 3rem;"></i>
+                <p class="mt-3 fs-5">
+                    <strong>@Model.Name</strong>, başvurunuz alınmıştır! 🎉 <br />
+                    Toplantıya seninle birlikte <strong>@ViewBag.UserCount</strong> kişi katılıyor.
+                </p>
+            </div>
+
+            <div class="d-grid">
+                <a class="btn btn-success btn-lg" href="/meeting/list">
+                    Katılımcıları Listele
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="text-center mb-4">
+                <i class="bi bi-emoji-frown text-danger" style="font-size: 3rem;"></i>
+                <p class="mt-3 fs-5">
+                    <strong>@Model.Name</strong>, katılamadığınız için üzgünüz. 😔
+                </p>
+            </div>
+
+            <div class="d-grid">
+                <a class="btn btn-danger btn-lg" href="/meeting/apply">
+                    Başvuru Formuna Geri Dön
+                </a>
+            </div>
+        }
+
+    </div>
+
+</main>
